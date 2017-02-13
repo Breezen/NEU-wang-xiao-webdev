@@ -13,8 +13,13 @@
         var vm = this;
     }
 
-    function EditWebsiteController() {
+    function EditWebsiteController($routeParams, WebsiteService) {
         var vm = this;
+        var websiteId = $routeParams.wid;
+        function init() {
+            vm.website = WebsiteService.findWebsiteById(websiteId);
+        }
+        init();
     }
 
 })();

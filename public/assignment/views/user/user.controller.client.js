@@ -13,8 +13,13 @@
         var vm = this;
     }
     
-    function ProfileController() {
+    function ProfileController($routeParams, UserService) {
         var vm = this;
+        var userId = $routeParams.uid;
+        function init() {
+            vm.user = UserService.findUserById(userId);
+        }
+        init();
     }
 
 })();

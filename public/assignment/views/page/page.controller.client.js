@@ -13,8 +13,13 @@
         var vm = this;
     }
 
-    function EditPageController() {
+    function EditPageController($routeParams, PageService) {
         var vm = this;
+        var pageId = $routeParams.pid;
+        function init() {
+            vm.page = PageService.findPageById(pageId);
+        }
+        init();
     }
 
 })();
