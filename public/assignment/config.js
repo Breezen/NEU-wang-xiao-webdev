@@ -4,6 +4,7 @@
         .config(Config);
 
     function Config($routeProvider) {
+
         $routeProvider
             .when("/", {
                 redirectTo: "/login"
@@ -44,5 +45,6 @@
             .when("/user/:uid/website/:wid/page/:pid/widget/:wgid", {
                 templateUrl: "views/widget/widget-edit.view.client.html"
             })
+            .otherwise({redirectTo: "/login"});
     }
 })();
