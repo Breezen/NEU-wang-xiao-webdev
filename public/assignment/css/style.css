@@ -21,3 +21,8 @@ body {
 .text-blue {
     color: #337ab7;
 }
+
+.widget-toolbar {
+    position: absolute;
+    right: 15px;
+}
