@@ -60,12 +60,13 @@
         }
 
         function findWidgetsByPageId(pageId) {
+            var res = [];
             for (var i in widgets) {
                 if (widgets[i].pageId == pageId) {
-                    return widgets[i];
+                    res.push(widgets[i]);
                 }
             }
-            return null;
+            return res;
         }
     }
 })();

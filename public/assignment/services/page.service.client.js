@@ -56,12 +56,13 @@
         }
 
         function findPageByWebsiteId(websiteId) {
+            var res = [];
             for (var i in pages) {
                 if (pages[i].websiteId == websiteId) {
-                    return pages[i];
+                    res.push(pages[i]);
                 }
             }
-            return null;
+            return res;
         }
     }
 })();

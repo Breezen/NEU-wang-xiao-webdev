@@ -35,39 +35,9 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-4 hidden-xs">
-            <div class="row">
+            <div class="row" ng-repeat="website in model.websites">
                 <p class="text-blue pull-left margin-left-15">
-                    <a href="../page/page-list.html" class="href">Address Book App</a>
-                </p>
-                <p class="pull-right">
-                    <a href="website-edit.html">
-                        <span class="glyphicon glyphicon-cog text-blue margin-right-15"></span>
-                    </a>
-                </p>
-            </div>
-            <div class="row">
-                <p class="text-blue pull-left margin-left-15">
-                    <a href="../page/page-list.html" class="href">Blogger</a>
-                </p>
-                <p class="pull-right">
-                    <a href="website-edit.html">
-                        <span class="glyphicon glyphicon-cog text-blue margin-right-15"></span>
-                    </a>
-                </p>
-            </div>
-            <div class="row">
-                <p class="text-blue pull-left margin-left-15">
-                    <a href="../page/page-list.html" class="href">Blogging App</a>
-                </p>
-                <p class="pull-right">
-                    <a href="website-edit.html">
-                        <span class="glyphicon glyphicon-cog text-blue margin-right-15"></span>
-                    </a>
-                </p>
-            </div>
-            <div class="row">
-                <p class="text-blue pull-left margin-left-15">
-                    <a href="../page/page-list.html" class="href">Script Testing App</a>
+                    <a href="../page/page-list.html" class="href">{{website.name}}</a>
                 </p>
                 <p class="pull-right">
                     <a href="website-edit.html">

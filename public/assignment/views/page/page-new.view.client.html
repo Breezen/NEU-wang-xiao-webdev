@@ -35,49 +35,9 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-4 hidden-xs">
-            <div class="row">
+            <div class="row" ng-repeat="page in model.pages">
                 <p class="text-blue pull-left margin-left-15">
-                    <a href="../widget/widget-list.html" class="href">Blog Post</a>
-                </p>
-                <p class="pull-right">
-                    <a href="page-edit.html">
-                        <span class="glyphicon glyphicon-cog text-blue margin-right-15"></span>
-                    </a>
-                </p>
-            </div>
-            <div class="row">
-                <p class="text-blue pull-left margin-left-15">
-                    <a href="../widget/widget-list.html" class="href">Blogs</a>
-                </p>
-                <p class="pull-right">
-                    <a href="page-edit.html">
-                        <span class="glyphicon glyphicon-cog text-blue margin-right-15"></span>
-                    </a>
-                </p>
-            </div>
-            <div class="row">
-                <p class="text-blue pull-left margin-left-15">
-                    <a href="../widget/widget-list.html" class="href">Home</a>
-                </p>
-                <p class="pull-right">
-                    <a href="page-edit.html">
-                        <span class="glyphicon glyphicon-cog text-blue margin-right-15"></span>
-                    </a>
-                </p>
-            </div>
-            <div class="row">
-                <p class="text-blue pull-left margin-left-15">
-                    <a href="../widget/widget-list.html" class="href">About</a>
-                </p>
-                <p class="pull-right">
-                    <a href="page-edit.html">
-                        <span class="glyphicon glyphicon-cog text-blue margin-right-15"></span>
-                    </a>
-                </p>
-            </div>
-            <div class="row">
-                <p class="text-blue pull-left margin-left-15">
-                    <a href="../widget/widget-list.html" class="href">Contact Us</a>
+                    <a href="../widget/widget-list.html" class="href">{{page.name}}</a>
                 </p>
                 <p class="pull-right">
                     <a href="page-edit.html">

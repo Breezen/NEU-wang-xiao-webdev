@@ -59,12 +59,13 @@
         }
 
         function findWebsitesByUser(userId) {
+            var res = [];
             for (var i in websites) {
                 if (websites[i].developerId == userId) {
-                    return websites[i];
+                    res.push(websites[i]);
                 }
             }
-            return null;
+            return res;
         }
     }
 })();
