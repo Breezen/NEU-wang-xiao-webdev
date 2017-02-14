@@ -2,11 +2,11 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-text pull-left margin-left-15">
-                <a href="widget-list.html" class="navbar-link">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </p>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand">
                 <strong>Widgets</strong>
             </a>
         </div>
@@ -15,23 +15,17 @@
 
 <div class="container-fluid">
     <ul class="list-unstyled">
-        <li><p><a href="widget-heading.html">Header</a></li></p>
-        <li><p><a href="#">Label</a></li></p>
-        <li><p><a href="#">HTML</a></li></p>
-        <li><p><a href="#">Text Input</a></li></p>
-        <li><p><a href="#">Link</a></li></p>
-        <li><p><a href="#">Button</a></li></p>
-        <li><p><a href="widget-image.html">Image</a></li></p>
-        <li><p><a href="widget-youtube.html">Youtube</a></li></p>
-        <li><p><a href="#">Data Table</a></li></p>
-        <li><p><a href="#">Repeater</a></li></p>
+        <li><p><a >Header</a></li></p>
+        <li><p><a >HTML</a></li></p>
+        <li><p><a >Image</a></li></p>
+        <li><p><a >Youtube</a></li></p>
     </ul>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <p class="navbar-text pull-right">
-            <a href="../user/profile.html" class="navbar-link">
+            <a href="#/user/{{model.userId}}" class="navbar-link">
                 <span class="glyphicon glyphicon-user text-blue"></span>
             </a>
         </p>

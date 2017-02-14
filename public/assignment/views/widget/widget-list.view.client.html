@@ -2,15 +2,15 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-text pull-left margin-left-15">
-                <a href="../page/page-list.html" class="navbar-link">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page" class="navbar-link">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </p>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand">
                 <strong>Widgets</strong>
             </a>
             <p class="navbar-text pull-right margin-right-15">
-                <a href="widget-choose.html" class="navbar-link">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new" class="navbar-link">
                     <span class="glyphicon glyphicon-plus"></span>
                 </a>
             </p>
@@ -19,53 +19,42 @@
 </nav>
 
 <div class="container-fluid">
-    <div>
+    <div ng-repeat="widget in model.widgets">
         <div class="widget-toolbar">
-            <a href="widget-heading.html"><span class="glyphicon glyphicon-cog"></span></a>
+            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                <span class="glyphicon glyphicon-cog"></span>
+            </a>
             <span class="glyphicon glyphicon-align-justify"></span>
         </div>
-        <h1>Tadashi Tokieda</h1>
-    </div>
-    <div>
-        <div class="widget-toolbar">
-            <a href="widget-image.html"><span class="glyphicon glyphicon-cog"></span></a>
-            <span class="glyphicon glyphicon-align-justify"></span>
+        <div ng-switch="widget.widgetType">
+            <div ng-switch-when="HEADER">
+                <ng-include src="'views/widget/widget-HEADER.view.client.html'"></ng-include>
+            </div>
+            <div ng-switch-when="IMAGE">
+                <ng-include src="'views/widget/widget-IMAGE.view.client.html'"></ng-include>
+            </div>
+            <div ng-switch-when="HTML">
+                <ng-include src="'views/widget/widget-HTML.view.client.html'"></ng-include>
+            </div>
+            <div ng-switch-when="YOUTUBE">
+                <ng-include src="'views/widget/widget-YOUTUBE.view.client.html'"></ng-include>
+            </div>
         </div>
-        <img width="100%" src="https://www.dpmms.cam.ac.uk/~tokieda/superball_by_tokieda.jpg" alt="">
-    </div>
-    <div>
-        <div class="widget-toolbar">
-            <a href="widget-heading.html"><span class="glyphicon glyphicon-cog"></span></a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <p>T^2 grew up as a painter in Japan, became a classical philologist in France,
-            learnt basic mathematics from Russian collections of problems (сборники задач), then <br>
-            was taught topology by W. Browder <br>
-            physics of fluids by  今井功 <br>
-            dynamical systems by A. Chenciner, inter alia. <br>
-            He has lived in 6 countries so far.</p>
-    </div>
-    <div>
-        <div class="widget-toolbar">
-            <a href="widget-youtube.html"><span class="glyphicon glyphicon-cog"></span></a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <iframe width="100%" height="400px" src="https://www.youtube.com/embed/djmec-Bweeg?list=PLt5AfwLFPxWI9eDSJREzp1wvOJsjt23H_" frameborder="0" allowfullscreen></iframe>
     </div>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <p class="navbar-text pull-left">
-            <a href="#" class="navbar-link">
+            <a class="navbar-link">
                 <span class="glyphicon glyphicon-play"></span>
             </a>
-            <a href="#" class="navbar-link">
+            <a class="navbar-link">
                 <span class="glyphicon glyphicon-eye-open margin-left-15"></span>
             </a>
         </p>
         <p class="navbar-text pull-right">
-            <a href="../user/profile.html" class="navbar-link">
+            <a href="#/user/{{model.userId}}" class="navbar-link">
                 <span class="glyphicon glyphicon-user text-blue"></span>
             </a>
         </p>
