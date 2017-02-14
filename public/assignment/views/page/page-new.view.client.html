@@ -3,27 +3,27 @@
         <div class="navbar-header row">
             <div class="col-xs-1">
                 <p class="navbar-text">
-                    <a href="page-list.html" class="navbar-link">
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page" class="navbar-link">
                         <span class="glyphicon glyphicon-chevron-left"></span>
                     </a>
                 </p>
             </div>
             <div class="col-sm-3 hidden-xs">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand">
                     <strong>Pages</strong>
                 </a>
                 <p class="navbar-text pull-right">
-                    <a href="page-new.html" class="navbar-link">
+                    <a class="navbar-link">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>
                 </p>
             </div>
             <div class="col-sm-8">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand">
                     <strong>New Page</strong>
                 </a>
                 <p class="navbar-text pull-right">
-                    <a href="page-list.html" class="navbar-link">
+                    <a ng-click="model.createPage(model.page)" class="navbar-link">
                         <span class="glyphicon glyphicon-ok"></span>
                     </a>
                 </p>
@@ -37,10 +37,10 @@
         <div class="col-sm-4 hidden-xs">
             <div class="row" ng-repeat="page in model.pages">
                 <p class="text-blue pull-left margin-left-15">
-                    <a href="../widget/widget-list.html" class="href">{{page.name}}</a>
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget" class="href">{{page.name}}</a>
                 </p>
                 <p class="pull-right">
-                    <a href="page-edit.html">
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
                         <span class="glyphicon glyphicon-cog text-blue margin-right-15"></span>
                     </a>
                 </p>
@@ -64,7 +64,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <p class="navbar-text pull-right">
-            <a href="../user/profile.html" class="navbar-link">
+            <a href="#/user/{{model.userId}}" class="navbar-link">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </p>
