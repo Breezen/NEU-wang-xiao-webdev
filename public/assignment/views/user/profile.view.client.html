@@ -1,11 +1,11 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid bg-primary">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand">
                 <strong class="bg-primary">Profile</strong>
             </a>
             <p class="navbar-text pull-right margin-right-15">
-                <a href="#" class="navbar-link">
+                <a ng-click="model.update(model.user)" class="navbar-link">
                     <span class="glyphicon glyphicon-ok bg-primary"></span>
                 </a>
             </p>
@@ -34,7 +34,7 @@
     </form>
 
     <a class="btn btn-primary btn-block"
-       href="../website/website-list.html">Websites</a>
+       href="#/user/{{model.userId}}/website">Websites</a>
     <a class="btn btn-danger  btn-block"
        href="#/login">Logout</a>
 </div>
@@ -42,7 +42,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid bg-primary">
         <p class="navbar-text pull-right">
-            <a href="#" class="navbar-link">
+            <a class="navbar-link">
                 <span class="glyphicon glyphicon-user bg-primary"></span>
             </a>
         </p>
