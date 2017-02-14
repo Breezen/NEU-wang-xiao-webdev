@@ -3,7 +3,7 @@
         <div class="navbar-header row">
             <div class="col-xs-1">
                 <p class="navbar-text">
-                    <a href="website-list.html" class="navbar-link">
+                    <a href="#/user/{{model.userId}}/website" class="navbar-link">
                         <span class="glyphicon glyphicon-chevron-left bg-primary"></span>
                     </a>
                 </p>
@@ -13,7 +13,7 @@
                     <strong class="bg-primary">Websites</strong>
                 </a>
                 <p class="navbar-text pull-right">
-                    <a href="website-new.html" class="navbar-link">
+                    <a href="#/user/{{model.userId}}/website/new" class="navbar-link">
                         <span class="glyphicon glyphicon-plus bg-primary"></span>
                     </a>
                 </p>
@@ -23,7 +23,7 @@
                     <strong class="bg-primary">Edit Website</strong>
                 </a>
                 <p class="navbar-text pull-right">
-                    <a href="website-list.html" class="navbar-link">
+                    <a ng-click="model.updateWebsite(model.website)" class="navbar-link">
                         <span class="glyphicon glyphicon-ok bg-primary"></span>
                     </a>
                 </p>
@@ -37,10 +37,10 @@
         <div class="col-sm-4 hidden-xs">
             <div class="row" ng-repeat="website in model.websites">
                 <p class="text-blue pull-left margin-left-15">
-                    <a href="../page/page-list.html" class="href">{{website.name}}</a>
+                    <a href="#/user/{{model.userId}}/website/{{website._id}}/page" class="href">{{website.name}}</a>
                 </p>
                 <p class="pull-right">
-                    <a href="website-edit.html">
+                    <a href="#/user/{{model.userId}}/website/{{website._id}}">
                         <span class="glyphicon glyphicon-cog text-blue margin-right-15"></span>
                     </a>
                 </p>
@@ -57,7 +57,7 @@
                     <textarea ng-model="model.website.description" class="form-control" rows="5" id="description" placeholder="Description"></textarea>
                 </div>
             </form>
-            <a href="website-list.html" class="btn btn-block btn-danger">Delete</a>
+            <a ng-click="model.deleteWebsite()" class="btn btn-block btn-danger">Delete</a>
         </div>
     </div>
 </div>
@@ -65,7 +65,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid bg-primary">
         <p class="navbar-text pull-right">
-            <a href="../user/profile.html" class="navbar-link">
+            <a href="#/user/{{model.userId}}" class="navbar-link">
                 <span class="glyphicon glyphicon-user bg-primary"></span>
             </a>
         </p>

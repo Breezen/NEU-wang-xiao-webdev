@@ -7,29 +7,29 @@
 
     function PageListController($routeParams, PageService) {
         var vm = this;
-        var websiteId = $routeParams.wid;
+        vm.websiteId = $routeParams.wid;
         function init() {
-            vm.pages = PageService.findPageByWebsiteId(websiteId);
+            vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
         }
         init();
     }
 
     function NewPageController($routeParams, PageService) {
         var vm = this;
-        var websiteId = $routeParams.wid;
+        vm.websiteId = $routeParams.wid;
         function init() {
-            vm.pages = PageService.findPageByWebsiteId(websiteId);
+            vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
         }
         init();
     }
 
     function EditPageController($routeParams, PageService) {
         var vm = this;
-        var websiteId = $routeParams.wid;
-        var pageId = $routeParams.pid;
+        vm.websiteId = $routeParams.wid;
+        vm.pageId = $routeParams.pid;
         function init() {
-            vm.pages = PageService.findPageByWebsiteId(websiteId);
-            vm.page = PageService.findPageById(pageId);
+            vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
+            vm.page = PageService.findPageById(vm.pageId);
         }
         init();
     }

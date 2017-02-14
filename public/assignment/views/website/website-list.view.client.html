@@ -2,15 +2,15 @@
     <div class="container-fluid bg-primary">
         <div class="navbar-header">
             <p class="navbar-text pull-left margin-left-15">
-                <a href="../user/profile.html" class="navbar-link">
+                <a href="#/user/{{model.userId}}" class="navbar-link">
                     <span class="glyphicon glyphicon-chevron-left bg-primary"></span>
                 </a>
             </p>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand">
                 <strong class="bg-primary">Websites</strong>
             </a>
             <p class="navbar-text pull-right margin-right-15">
-                <a href="website-new.html" class="navbar-link">
+                <a href="#/user/{{model.userId}}/website/new" class="navbar-link">
                     <span class="glyphicon glyphicon-plus bg-primary"></span>
                 </a>
             </p>
@@ -21,10 +21,10 @@
 <div class="container-fluid">
     <div class="row" ng-repeat="website in model.websites">
         <p class="text-blue pull-left margin-left-15">
-            <a href="../page/page-list.html" class="href">{{website.name}}</a>
+            <a href="#/user/{{model.userId}}/website/{{website._id}}/page" class="href">{{website.name}}</a>
         </p>
         <p class="pull-right">
-            <a href="website-edit.html">
+            <a href="#/user/{{model.userId}}/website/{{website._id}}">
                 <span class="glyphicon glyphicon-cog text-blue margin-right-15"></span>
             </a>
         </p>
@@ -34,7 +34,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid bg-primary">
         <p class="navbar-text pull-right">
-            <a href="../user/profile.html" class="navbar-link">
+            <a href="#/user/{{model.userId}}" class="navbar-link">
                 <span class="glyphicon glyphicon-user bg-primary"></span>
             </a>
         </p>
