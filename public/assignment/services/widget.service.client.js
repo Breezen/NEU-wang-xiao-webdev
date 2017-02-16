@@ -53,7 +53,7 @@
         function findWidgetById(widgetId) {
             for (var i in widgets) {
                 if (widgets[i]._id == widgetId) {
-                    return widgets[i];
+                    return angular.copy(widgets[i]);
                 }
             }
             return null;
@@ -63,7 +63,7 @@
             var res = [];
             for (var i in widgets) {
                 if (widgets[i].pageId == pageId) {
-                    res.push(widgets[i]);
+                    res.push(angular.copy(widgets[i]));
                 }
             }
             return res;

@@ -49,7 +49,7 @@
         function findPageById(pageId) {
             for (var i in pages) {
                 if (pages[i]._id == pageId) {
-                    return pages[i];
+                    return angular.copy(pages[i]);
                 }
             }
             return null;
@@ -59,7 +59,7 @@
             var res = [];
             for (var i in pages) {
                 if (pages[i].websiteId == websiteId) {
-                    res.push(pages[i]);
+                    res.push(angular.copy(pages[i]));
                 }
             }
             return res;
