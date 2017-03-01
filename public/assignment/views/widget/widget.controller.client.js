@@ -59,6 +59,7 @@
             WidgetService.findWidgetById(vm.widgetId)
                 .success(function (widget) {
                     vm.widget = widget;
+                    vm.templateUrl = 'views/widget/editor/widget-' + widget.widgetType + '-editor.view.client.html';
                 });
         }
         init();
