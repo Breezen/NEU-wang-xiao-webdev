@@ -16,7 +16,7 @@ module.exports = function (app) {
         var results = [];
         for (var i in pages) {
             if (websiteId == pages[i].websiteId) {
-                results.push(websites[i]);
+                results.push(pages[i]);
             }
         }
         res.json(results);
