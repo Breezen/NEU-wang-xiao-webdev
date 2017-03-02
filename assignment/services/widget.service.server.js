@@ -78,16 +78,14 @@ module.exports = function (app) {
     }
 
     function uploadImage(req, res) {
-
-        var myFile        = req.file;
-
-        var originalname  = myFile.originalname; // file name on user's computer
-        var filename      = myFile.filename;     // new file name in upload folder
-        var path          = myFile.path;         // full path of uploaded file
-        var destination   = myFile.destination;  // folder where file is saved to
-        var size          = myFile.size;
-        var mimetype      = myFile.mimetype;
-
+        var id = req.body.widgetId;
+        var path = "/uploads/" + req.file.filename;
+        for (var i in widgets) {
+            if (widgets[i]._id == id) {
+                widgets[i].url = path;
+                break;
+            }
+        }
         res.json(path);
     }
 }
