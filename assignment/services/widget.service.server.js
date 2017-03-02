@@ -86,6 +86,10 @@ module.exports = function (app) {
                 break;
             }
         }
-        res.json(path);
+        var userId = req.body.userId;
+        var websiteId = req.body.websiteId;
+        var pageId = req.body.pageId;
+        var callbackUrl = "/assignment/index.html#/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + id;
+        res.redirect(callbackUrl);
     }
 }
