@@ -1,4 +1,4 @@
-module.exports = function (app) {
+module.exports = function (app, model) {
     var users = [
         {_id: 1, username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder"},
         {_id: 2, username: "bob", password: "bob", firstName: "Bob", lastName: "Marley"},
