@@ -14,7 +14,7 @@ module.exports = function (app, model) {
     app.put("/api/website/:websiteId", updateWebsite);
     app.delete("/api/website/:websiteId", deleteWebsite);
 
-    var userModel = model.userModel;
+    // var userModel = model.userModel;
     var websiteModel = model.websiteModel;
 
     function findAllWebsitesForUser(req, res) {
