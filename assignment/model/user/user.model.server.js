@@ -2,7 +2,7 @@ module.exports = function () {
     var q = require("q");
     var mongoose = require("mongoose");
     var userSchema = require("./user.schema.server.js")();
-    var UserModel = mongoose.model("User", userSchema);
+    var userModel = mongoose.model("User", userSchema);
 
     var api = {
         createUser: createUser,
@@ -16,7 +16,7 @@ module.exports = function () {
 
     function createUser(user) {
         var deferred = q.defer();
-        UserModel.create(user, function (err, user) {
+        userModel.create(user, function (err, user) {
             if (err) { deferred.abort(err); }
             else { deferred.resolve(user); }
         });
@@ -25,7 +25,7 @@ module.exports = function () {
     
     function findUserById(userId) {
         var deferred = q.defer();
-        UserModel.findOne({_id: userId}, function (err, user) {
+        userModel.findOne({_id: userId}, function (err, user) {
             if (err) { deferred.abort(err); }
             else { deferred.resolve(user); }
         });
@@ -34,7 +34,7 @@ module.exports = function () {
     
     function findUserByUsername(username) {
         var deferred = q.defer();
-        UserModel.findOne({username: username}, function (err, user) {
+        userModel.findOne({username: username}, function (err, user) {
             if (err) { deferred.abort(err); }
             else { deferred.resolve(user); }
         });
@@ -43,7 +43,7 @@ module.exports = function () {
     
     function findUserByCredentials(username, password) {
         var deferred = q.defer();
-        UserModel.findOne({username: username, password: password}, function (err, user) {
+        userModel.findOne({username: username, password: password}, function (err, user) {
             if (err) { deferred.abort(err); }
             else { deferred.resolve(user); }
         });
@@ -52,7 +52,7 @@ module.exports = function () {
     
     function updateUser(userId, user) {
         var deferred = q.defer();
-        UserModel.update({_id: userId},
+        userModel.update({_id: userId},
             {
                 username: user.username,
                 firstName:user.firstName,
@@ -70,7 +70,7 @@ module.exports = function () {
     
     function deleteUser(userId) {
         var deferred = q.defer();
-        UserModel.remove({_id: userId}, function (err, status) {
+        userModel.remove({_id: userId}, function (err, status) {
             if (err) { deferred.abort(err); }
             else { deferred.resolve(status); }
         });

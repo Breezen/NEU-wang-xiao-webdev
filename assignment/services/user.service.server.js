@@ -12,6 +12,8 @@ module.exports = function (app, model) {
     app.put("/api/user/:userId", updateUser);
     app.delete("/api/user/:userId", deleteUser);
 
+    var userModel = model.userModel;
+
     function findUser(req, res) {
         var username = req.query.username;
         var password = req.query.password;
@@ -24,7 +26,7 @@ module.exports = function (app, model) {
     
     function findUserByUsername(req, res) {
         var username = req.query.username;
-        model
+        userModel
             .findUserByUsername(username)
             .then(function (user) {
                 res.json(user);
@@ -44,7 +46,7 @@ module.exports = function (app, model) {
     function findUserByCredentials(req, res) {
         var username = req.query.username;
         var password = req.query.password;
-        model
+        userModel
             .findUserByCredentials(username, password)
             .then(function (user) {
                 res.json(user);
@@ -63,7 +65,7 @@ module.exports = function (app, model) {
     
     function findUserByUserId(req, res) {
         var userId = req.params.userId;
-        model
+        userModel
             .findUserById(userId)
             .then(function (user) {
                 res.json(user);
@@ -81,7 +83,7 @@ module.exports = function (app, model) {
     }
 
     function createUser(req, res) {
-        model
+        userModel
             .createUser(req.body)
             .then(function (user) {
                 res.json(user);
@@ -97,7 +99,7 @@ module.exports = function (app, model) {
     function updateUser(req, res) {
         var userId = req.params.userId;
         var newUser = req.body;
-        model
+        userModel
             .updateUser(userId, newUser)
             .then(function (user) {
                 res.json(user);
@@ -117,7 +119,7 @@ module.exports = function (app, model) {
     
     function deleteUser(req, res) {
         var userId = req.params.userId;
-        model
+        userModel
             .deleteUser(userId)
             .then(function (status) {
                 res.send(status);
@@ -133,4 +135,4 @@ module.exports = function (app, model) {
         // }
         // res.sendStatus(404);
     }
-}
+};
