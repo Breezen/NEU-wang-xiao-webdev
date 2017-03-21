@@ -109,4 +109,4 @@ module.exports = function (app, model) {
         // }
         // res.sendStatus(404);
     }
-}
+};

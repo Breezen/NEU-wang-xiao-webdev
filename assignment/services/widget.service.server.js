@@ -92,4 +92,4 @@ module.exports = function (app, model) {
         var callbackUrl = "/assignment/index.html#/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + id;
         res.redirect(callbackUrl);
     }
-}
+};
