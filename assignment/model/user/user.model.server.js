@@ -52,15 +52,7 @@ module.exports = function () {
     
     function updateUser(userId, user) {
         var deferred = q.defer();
-        userModel.update({_id: userId},
-            {
-                username: user.username,
-                firstName:user.firstName,
-                lastName: user.lastName,
-                email: user.email,
-                phone: user.phone
-            },
-            function (err, user) {
+        userModel.update({_id: userId}, {$set: user}, function (err, user) {
                 if (err) { deferred.abort(err); }
                 else { deferred.resolve(user); }
             }
