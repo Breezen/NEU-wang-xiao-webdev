@@ -72,17 +72,15 @@ module.exports = function (app, model) {
         var id = req.body.widgetId;
         var path = "/uploads/" + req.file.filename;
         widgetModel
-            .updateWidget(id, {path: path})
+            .updateWidget(id, {url: path})
             .then(function (widget) {
-                res.json(widget);
+                var userId = req.body.userId;
+                var websiteId = req.body.websiteId;
+                var pageId = req.body.pageId;
+                var callbackUrl = "/assignment/index.html#/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + id;
+                res.redirect(callbackUrl);
             }, function (err) {
                 res.status(500).send(err);
             });
-
-        var userId = req.body.userId;
-        var websiteId = req.body.websiteId;
-        var pageId = req.body.pageId;
-        var callbackUrl = "/assignment/index.html#/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + id;
-        res.redirect(callbackUrl);
     }
 };
