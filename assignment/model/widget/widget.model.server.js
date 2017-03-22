@@ -18,7 +18,7 @@ module.exports = function () {
         var deferred = q.defer();
         widget._page = pageId;
         widgetModel.create(widget, function (err, widget) {
-            if (err) { deferred.abort(err); }
+            if (err) { deferred.reject(err); }
             else { deferred.resolve(widget); }
         });
         return deferred.promise;
@@ -27,7 +27,7 @@ module.exports = function () {
     function findAllWidgetsForPage(pageId) {
         var deferred = q.defer();
         widgetModel.find({_page: pageId}, function (err, widgets) {
-            if (err) { deferred.abort(err); }
+            if (err) { deferred.reject(err); }
             else { deferred.resolve(widgets); }
         });
         return deferred.promise;
@@ -36,7 +36,7 @@ module.exports = function () {
     function findWidgetById(widgetId) {
         var deferred = q.defer();
         widgetModel.findOne({_id: widgetId}, function (err, widget) {
-            if (err) { deferred.abort(err); }
+            if (err) { deferred.reject(err); }
             else { deferred.resolve(widget); }
         });
         return deferred.promise;
@@ -45,7 +45,7 @@ module.exports = function () {
     function updateWidget(widgetId, widget) {
         var deferred = q.defer();
         widgetModel.update({_id: widgetId}, {$set: widget}, function (err, widget) {
-            if (err) { deferred.abort(err); }
+            if (err) { deferred.reject(err); }
             else { deferred.resolve(widget); }
         });
         return deferred.promise;
@@ -54,7 +54,7 @@ module.exports = function () {
     function deleteWidget(widgetId) {
         var deferred = q.defer();
         widgetModel.remove({_id: widgetId}, function (err, status) {
-            if (err) { deferred.abort(err); }
+            if (err) { deferred.reject(err); }
             else { deferred.resolve(status); }
         });
         return deferred.promise;

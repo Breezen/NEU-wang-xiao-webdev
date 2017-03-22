@@ -17,7 +17,7 @@ module.exports = function () {
     function createUser(user) {
         var deferred = q.defer();
         userModel.create(user, function (err, user) {
-            if (err) { deferred.abort(err); }
+            if (err) { deferred.reject(err); }
             else { deferred.resolve(user); }
         });
         return deferred.promise;
@@ -26,7 +26,7 @@ module.exports = function () {
     function findUserById(userId) {
         var deferred = q.defer();
         userModel.findOne({_id: userId}, function (err, user) {
-            if (err) { deferred.abort(err); }
+            if (err) { deferred.reject(err); }
             else { deferred.resolve(user); }
         });
         return deferred.promise;
@@ -35,7 +35,7 @@ module.exports = function () {
     function findUserByUsername(username) {
         var deferred = q.defer();
         userModel.findOne({username: username}, function (err, user) {
-            if (err) { deferred.abort(err); }
+            if (err) { deferred.reject(err); }
             else { deferred.resolve(user); }
         });
         return deferred.promise;
@@ -44,7 +44,7 @@ module.exports = function () {
     function findUserByCredentials(username, password) {
         var deferred = q.defer();
         userModel.findOne({username: username, password: password}, function (err, user) {
-            if (err) { deferred.abort(err); }
+            if (err) { deferred.reject(err); }
             else { deferred.resolve(user); }
         });
         return deferred.promise;
@@ -53,7 +53,7 @@ module.exports = function () {
     function updateUser(userId, user) {
         var deferred = q.defer();
         userModel.update({_id: userId}, {$set: user}, function (err, user) {
-                if (err) { deferred.abort(err); }
+                if (err) { deferred.reject(err); }
                 else { deferred.resolve(user); }
             }
         );
@@ -63,7 +63,7 @@ module.exports = function () {
     function deleteUser(userId) {
         var deferred = q.defer();
         userModel.remove({_id: userId}, function (err, status) {
-            if (err) { deferred.abort(err); }
+            if (err) { deferred.reject(err); }
             else { deferred.resolve(status); }
         });
         return deferred.promise;

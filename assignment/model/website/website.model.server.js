@@ -17,7 +17,7 @@ module.exports = function () {
         var deferred = q.defer();
         website._user = userId;
         websiteModel.create(website, function (err, website) {
-            if (err) { deferred.abort(err); }
+            if (err) { deferred.reject(err); }
             else { deferred.resolve(website); }
         });
         return deferred.promise;
@@ -26,7 +26,7 @@ module.exports = function () {
     function findAllWebsitesForUser(userId) {
         var deferred = q.defer();
         websiteModel.find({_user: userId}, function (err, websites) {
-            if (err) { deferred.abort(err); }
+            if (err) { deferred.reject(err); }
             else { deferred.resolve(websites); }
         });
         return deferred.promise;
@@ -35,7 +35,7 @@ module.exports = function () {
     function findWebsiteById(websiteId) {
         var deferred = q.defer();
         websiteModel.findOne({_id: websiteId}, function (err, website) {
-            if (err) { deferred.abort(err); }
+            if (err) { deferred.reject(err); }
             else { deferred.resolve(website); }
         });
         return deferred.promise;
@@ -44,7 +44,7 @@ module.exports = function () {
     function updateWebsite(websiteId, website) {
         var deferred = q.defer();
         websiteModel.update({_id: websiteId}, {$set: website}, function (err, website) {
-            if (err) { deferred.abort(err); }
+            if (err) { deferred.reject(err); }
             else { deferred.resolve(website); }
         });
         return deferred.promise;
@@ -53,7 +53,7 @@ module.exports = function () {
     function deleteWebsite(websiteId) {
         var deferred = q.defer();
         websiteModel.remove({_id: websiteId}, function (err, status) {
-            if (err) { deferred.abort(err); }
+            if (err) { deferred.reject(err); }
             else { deferred.resolve(status); }
         });
         return deferred.promise;

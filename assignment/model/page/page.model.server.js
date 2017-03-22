@@ -17,7 +17,7 @@ module.exports = function () {
         var deferred = q.defer();
         page._website = websiteId;
         pageModel.create(page, function (err, page) {
-            if (err) { deferred.abort(err); }
+            if (err) { deferred.reject(err); }
             else { deferred.resolve(page); }
         });
         return deferred.promise;
@@ -26,7 +26,7 @@ module.exports = function () {
     function findAllPagesForWebsite(websiteId) {
         var deferred = q.defer();
         pageModel.find({_website: websiteId}, function (err, pages) {
-            if (err) { deferred.abort(err); }
+            if (err) { deferred.reject(err); }
             else { deferred.resolve(pages); }
         });
         return deferred.promise;
@@ -35,7 +35,7 @@ module.exports = function () {
     function findPageById(pageId) {
         var deferred = q.defer();
         pageModel.findOne({_id: pageId}, function (err, page) {
-            if (err) { deferred.abort(err); }
+            if (err) { deferred.reject(err); }
             else { deferred.resolve(page); }
         });
         return deferred.promise;
@@ -44,7 +44,7 @@ module.exports = function () {
     function updatePage(pageId, page) {
         var deferred = q.defer();
         pageModel.update({_id: pageId}, {$set: page}, function (err, page) {
-            if (err) { deferred.abort(err); }
+            if (err) { deferred.reject(err); }
             else { deferred.resolve(page); }
         });
         return deferred.promise;
@@ -53,7 +53,7 @@ module.exports = function () {
     function deletePage(pageId) {
         var deferred = q.defer();
         pageModel.remove({_id: pageId}, function (err, status) {
-            if (err) { deferred.abort(err); }
+            if (err) { deferred.reject(err); }
             else { deferred.resolve(status); }
         });
         return deferred.promise;
