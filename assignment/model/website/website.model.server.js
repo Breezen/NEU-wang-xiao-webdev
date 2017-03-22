@@ -14,48 +14,48 @@ module.exports = function () {
     return api;
 
     function createWebsiteForUser(userId, website) {
-        var deferred = q.defer();
+        var d = q.defer();
         website._user = userId;
         websiteModel.create(website, function (err, website) {
-            if (err) { deferred.reject(err); }
-            else { deferred.resolve(website); }
+            if (err) { d.reject(err); }
+            else { d.resolve(website); }
         });
-        return deferred.promise;
+        return d.promise;
     }
     
     function findAllWebsitesForUser(userId) {
-        var deferred = q.defer();
+        var d = q.defer();
         websiteModel.find({_user: userId}, function (err, websites) {
-            if (err) { deferred.reject(err); }
-            else { deferred.resolve(websites); }
+            if (err) { d.reject(err); }
+            else { d.resolve(websites); }
         });
-        return deferred.promise;
+        return d.promise;
     }
     
     function findWebsiteById(websiteId) {
-        var deferred = q.defer();
+        var d = q.defer();
         websiteModel.findOne({_id: websiteId}, function (err, website) {
-            if (err) { deferred.reject(err); }
-            else { deferred.resolve(website); }
+            if (err) { d.reject(err); }
+            else { d.resolve(website); }
         });
-        return deferred.promise;
+        return d.promise;
     }
     
     function updateWebsite(websiteId, website) {
-        var deferred = q.defer();
+        var d = q.defer();
         websiteModel.update({_id: websiteId}, {$set: website}, function (err, website) {
-            if (err) { deferred.reject(err); }
-            else { deferred.resolve(website); }
+            if (err) { d.reject(err); }
+            else { d.resolve(website); }
         });
-        return deferred.promise;
+        return d.promise;
     }
     
     function deleteWebsite(websiteId) {
-        var deferred = q.defer();
+        var d = q.defer();
         websiteModel.remove({_id: websiteId}, function (err, status) {
-            if (err) { deferred.reject(err); }
-            else { deferred.resolve(status); }
+            if (err) { d.reject(err); }
+            else { d.resolve(status); }
         });
-        return deferred.promise;
+        return d.promise;
     }
 };

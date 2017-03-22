@@ -15,49 +15,49 @@ module.exports = function () {
     return api;
 
     function createWidget(pageId, widget) {
-        var deferred = q.defer();
+        var d = q.defer();
         widget._page = pageId;
         widgetModel.create(widget, function (err, widget) {
-            if (err) { deferred.reject(err); }
-            else { deferred.resolve(widget); }
+            if (err) { d.reject(err); }
+            else { d.resolve(widget); }
         });
-        return deferred.promise;
+        return d.promise;
     }
 
     function findAllWidgetsForPage(pageId) {
-        var deferred = q.defer();
+        var d = q.defer();
         widgetModel.find({_page: pageId}, function (err, widgets) {
-            if (err) { deferred.reject(err); }
-            else { deferred.resolve(widgets); }
+            if (err) { d.reject(err); }
+            else { d.resolve(widgets); }
         });
-        return deferred.promise;
+        return d.promise;
     }
 
     function findWidgetById(widgetId) {
-        var deferred = q.defer();
+        var d = q.defer();
         widgetModel.findOne({_id: widgetId}, function (err, widget) {
-            if (err) { deferred.reject(err); }
-            else { deferred.resolve(widget); }
+            if (err) { d.reject(err); }
+            else { d.resolve(widget); }
         });
-        return deferred.promise;
+        return d.promise;
     }
 
     function updateWidget(widgetId, widget) {
-        var deferred = q.defer();
+        var d = q.defer();
         widgetModel.update({_id: widgetId}, {$set: widget}, function (err, widget) {
-            if (err) { deferred.reject(err); }
-            else { deferred.resolve(widget); }
+            if (err) { d.reject(err); }
+            else { d.resolve(widget); }
         });
-        return deferred.promise;
+        return d.promise;
     }
 
     function deleteWidget(widgetId) {
-        var deferred = q.defer();
+        var d = q.defer();
         widgetModel.remove({_id: widgetId}, function (err, status) {
-            if (err) { deferred.reject(err); }
-            else { deferred.resolve(status); }
+            if (err) { d.reject(err); }
+            else { d.resolve(status); }
         });
-        return deferred.promise;
+        return d.promise;
     }
 
     function reorderWidget(pageId, start, end) {

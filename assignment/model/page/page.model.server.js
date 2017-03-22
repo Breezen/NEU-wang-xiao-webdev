@@ -14,48 +14,48 @@ module.exports = function () {
     return api;
 
     function createPage(websiteId, page) {
-        var deferred = q.defer();
+        var d = q.defer();
         page._website = websiteId;
         pageModel.create(page, function (err, page) {
-            if (err) { deferred.reject(err); }
-            else { deferred.resolve(page); }
+            if (err) { d.reject(err); }
+            else { d.resolve(page); }
         });
-        return deferred.promise;
+        return d.promise;
     }
     
     function findAllPagesForWebsite(websiteId) {
-        var deferred = q.defer();
+        var d = q.defer();
         pageModel.find({_website: websiteId}, function (err, pages) {
-            if (err) { deferred.reject(err); }
-            else { deferred.resolve(pages); }
+            if (err) { d.reject(err); }
+            else { d.resolve(pages); }
         });
-        return deferred.promise;
+        return d.promise;
     }
 
     function findPageById(pageId) {
-        var deferred = q.defer();
+        var d = q.defer();
         pageModel.findOne({_id: pageId}, function (err, page) {
-            if (err) { deferred.reject(err); }
-            else { deferred.resolve(page); }
+            if (err) { d.reject(err); }
+            else { d.resolve(page); }
         });
-        return deferred.promise;
+        return d.promise;
     }
 
     function updatePage(pageId, page) {
-        var deferred = q.defer();
+        var d = q.defer();
         pageModel.update({_id: pageId}, {$set: page}, function (err, page) {
-            if (err) { deferred.reject(err); }
-            else { deferred.resolve(page); }
+            if (err) { d.reject(err); }
+            else { d.resolve(page); }
         });
-        return deferred.promise;
+        return d.promise;
     }
     
     function deletePage(pageId) {
-        var deferred = q.defer();
+        var d = q.defer();
         pageModel.remove({_id: pageId}, function (err, status) {
-            if (err) { deferred.reject(err); }
-            else { deferred.resolve(status); }
+            if (err) { d.reject(err); }
+            else { d.resolve(status); }
         });
-        return deferred.promise;
+        return d.promise;
     }
 };
