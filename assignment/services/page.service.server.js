@@ -11,9 +11,7 @@ module.exports = function (app, model) {
     app.put("/api/page/:pageId", updatePage);
     app.delete("/api/page/:pageId", deletePage);
 
-    // var websiteModel = model.websiteModel;
     var pageModel = model.pageModel;
-    // var widgetModel = model.widgetModel;
 
     function findAllPagesForWebsite(req, res) {
         var websiteId = req.params.websiteId;
