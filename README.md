@@ -1,8 +1,12 @@
-# web-dev-template
+# CS5610 Web Development Assignment
 
-1. git clone https://github.com/jannunzi/web-dev-template.git
-1. cd web-dev-template
+## Online
+https://wang-xiao-webdev.herokuapp.com/
+
+## Local
+1. git clone https://github.com/Breezen/wang-xiao-webdev.git
+1. cd wang-xiao-webdev
 1. npm install
 1. mongod
 1. node server.js
-1. browse to localhost:3000
+1. browse localhost:3000
