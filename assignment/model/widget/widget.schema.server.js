@@ -3,9 +3,9 @@ module.exports = function () {
 
     var widgetSchema = Schema({
         _page: {type: Schema.Types.ObjectId, ref: "Page"},
-        type: {
+        widgetType: {
             type: String,
-            enum: ['HEADING', 'IMAGE', 'YOUTUBE', 'HTML', 'INPUT']
+            enum: ['HEADER', 'IMAGE', 'YOUTUBE', 'HTML', 'TEXT']
         },
         name: String,
         text: String,
@@ -21,7 +21,7 @@ module.exports = function () {
         deletable: Boolean,
         formatted: Boolean,
         dateCreated: { type: Date, default: Date.now }
-    });
+    }, {collection: "assignment.widget"});
 
     return widgetSchema;
 };

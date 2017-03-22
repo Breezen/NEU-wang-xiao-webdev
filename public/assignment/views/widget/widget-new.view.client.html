@@ -19,6 +19,7 @@
             <label for="type">Widget Type</label>
             <select ng-model="model.widget.widgetType" class="form-control" id="type">
                 <option value="HEADER">Header</option>
+                <option value="TEXT">Text</option>
                 <option value="HTML">HTML</option>
                 <option value="IMAGE">Image</option>
                 <option value="YOUTUBE">Youtube</option>
@@ -27,6 +28,9 @@
         <div ng-switch="model.widget.widgetType">
             <div ng-switch-when="HEADER">
                 <ng-include src="'views/widget/editor/widget-HEADER-editor.view.client.html'"></ng-include>
+            </div>
+            <div ng-switch-when="TEXT">
+                <ng-include src="'views/widget/editor/widget-TEXT-editor.view.client.html'"></ng-include>
             </div>
             <div ng-switch-when="HTML">
                 <ng-include src="'views/widget/editor/widget-HTML-editor.view.client.html'"></ng-include>
