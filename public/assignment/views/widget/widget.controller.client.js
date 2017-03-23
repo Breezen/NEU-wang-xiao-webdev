@@ -11,6 +11,9 @@
         vm.websiteId = $routeParams.wid;
         vm.pageId = $routeParams.pid;
         vm.widgetId = $routeParams.wgid;
+
+        vm.sortableOptions = {stop: reorder};
+
         function init() {
              WidgetService.findWidgetsByPageId(vm.pageId)
                  .success(function (widgets) {
@@ -19,6 +22,10 @@
         }
         init();
 
+        function reorder(e, ui) {
+
+        }
+        
         vm.getTrustedHtml = function (html) {
             return $sce.trustAsHtml(html);
         }
