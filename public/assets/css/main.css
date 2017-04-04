@@ -1346,10 +1346,6 @@
 
 		@media screen and (max-width: 980px) {
 
-			#header .content p br {
-				display: none;
-			}
-
 		}
 
 		@media screen and (max-width: 736px) {
