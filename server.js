@@ -13,3 +13,8 @@ require("./assignment/app.js")(app);
 
 var port = process.env.PORT || 3000;
 app.listen(port);
+
+var http = require("http");
+setInterval(function () {
+    http.get("http://wang-xiao-webdev.herokuapp.com");
+}, 300000);
